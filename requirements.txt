@@ -1,1 +1,10 @@
-#nothing
+Flask
+gunicorn
+line-bot-sdk
+requests
+beautifulsoup4
+openai
+markdown
+httpretty
+PyHackMD
+pyimgur
