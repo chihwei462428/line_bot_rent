@@ -8,3 +8,5 @@ markdown
 httpretty
 PyHackMD
 pyimgur
+gspread
+oauth2client
