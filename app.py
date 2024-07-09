@@ -2,7 +2,7 @@ from flask import Flask, request, abort
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage
-import gspread
+import pygsheets #gspread
 import tempfile
 from oauth2client.service_account import ServiceAccountCredentials
 import os
@@ -14,9 +14,10 @@ handler = WebhookHandler(os.environ['CHANNEL_SECRET'])
 
 
 # Google Sheets credentials
-scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret_373873467094-09gahap4i6mcjuhapoeam50ikqts6tj9.apps.googleusercontent.com.json', scope)
-client = gspread.authorize(creds)
+#scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
+#creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret_373873467094-09gahap4i6mcjuhapoeam50ikqts6tj9.apps.googleusercontent.com.json', scope)
+#client = gspread.authorize(creds)
+client = pygsheets.authorize(service_file='client_secret_373873467094-09gahap4i6mcjuhapoeam50ikqts6tj9.apps.googleusercontent.com.json')
 
 
 # Open the Google Sheet
