@@ -13,17 +13,29 @@ line_bot_api = LineBotApi(os.environ['CHANNEL_ACCESS_TOKEN'])
 handler = WebhookHandler(os.environ['CHANNEL_SECRET'])
 
 
+
+google_credentials = os.getenv('GOOGLE_CREDENTIALS')
+creds_json = json.loads(google_credentials)
+
+# Write credentials to a temporary file
+with tempfile.NamedTemporaryFile(delete=False, suffix='.json') as temp_file:
+    temp_file.write(json.dumps(creds_json).encode('utf-8'))
+    temp_file_path = temp_file.name
+
+
+
 # Google Sheets credentials
 scope = ['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive']
-creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret_373873467094-09gahap4i6mcjuhapoeam50ikqts6tj9.apps.googleusercontent.com.json', scope)
+creds = ServiceAccountCredentials.from_json_keyfile_name(temp_file_path, scope)
 client = gspread.authorize(creds)
-#client = pygsheets.authorize(service_file='client_secret_373873467094-09gahap4i6mcjuhapoeam50ikqts6tj9.apps.googleusercontent.com.json')
+#creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret_373873467094-09gahap4i6mcjuhapoeam50ikqts6tj9.apps.googleusercontent.com.json', scope)
+#client = gspread.authorize(creds)
+
 
 
 # Open the Google Sheet
-#sheet = client.open_by_url('https://docs.google.com/spreadsheets/d/1sTVGZUFG6HvnCWKb2ua95JN7j4IuymIjcMyZuHTZFT8/')
-spreadsheet = client.open("car_2024")
-#sheet = spreadsheet.sheet1
+spreadsheet = client.open("Car Rental Records")
+sheet = spreadsheet.sheet1
 
 
 
