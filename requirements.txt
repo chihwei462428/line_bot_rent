@@ -9,4 +9,5 @@ httpretty
 PyHackMD
 pyimgur
 gspread
+pygsheets
 oauth2client
