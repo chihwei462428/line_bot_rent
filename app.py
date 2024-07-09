@@ -19,6 +19,11 @@ creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret_37387346
 client = gspread.authorize(creds)
 
 
+# Open the Google Sheet
+spreadsheet = client.open("car_2024")
+sheet = spreadsheet.sheet1
+
+
 
 @app.route("/callback", methods=['POST'])
 def callback():
