@@ -20,7 +20,7 @@ client = gspread.authorize(creds)
 
 
 # Open the Google Sheet
-#spreadsheet = client.open("car_2024")
+spreadsheet = client.open("car_2024")
 #sheet = spreadsheet.sheet1
 
 
