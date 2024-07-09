@@ -14,15 +14,15 @@ handler = WebhookHandler(os.environ['CHANNEL_SECRET'])
 
 
 # 从环境变量读取Google Sheets的认证信息
-google_sheet_credentials = os.environ['GOOGLE_SHEET_CREDENTIALS']    #os.getenv('GOOGLE_SHEET_CREDENTIALS')
+'''google_sheet_credentials = os.environ['GOOGLE_SHEET_CREDENTIALS']    #os.getenv('GOOGLE_SHEET_CREDENTIALS')
 with tempfile.NamedTemporaryFile(delete=False, suffix='.json') as temp_file:
     temp_file.write(google_sheet_credentials.encode('utf-8'))
-    temp_file_path = temp_file.name
+    temp_file_path = temp_file.name'''
 
 
 
 # Google Sheets credentials
-scope = ["https://spreadsheets.google.com/feeds"]  #, "https://www.googleapis.com/auth/drive"]
+scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
 #creds = ServiceAccountCredentials.from_json_keyfile_name(temp_file_path, scope)
 creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret_373873467094-09gahap4i6mcjuhapoeam50ikqts6tj9.apps.googleusercontent.com.json', scope)
 client = gspread.authorize(creds)
