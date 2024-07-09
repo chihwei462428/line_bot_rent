@@ -14,7 +14,7 @@ handler = WebhookHandler(os.environ['CHANNEL_SECRET'])
 
 
 # 从环境变量读取Google Sheets的认证信息
-google_sheet_credentials = os.getenv('GOOGLE_SHEET_CREDENTIALS')
+google_sheet_credentials = os.environ['GOOGLE_SHEET_CREDENTIALS']    #os.getenv('GOOGLE_SHEET_CREDENTIALS')
 with tempfile.NamedTemporaryFile(delete=False, suffix='.json') as temp_file:
     temp_file.write(google_sheet_credentials.encode('utf-8'))
     temp_file_path = temp_file.name
