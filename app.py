@@ -35,8 +35,8 @@ client = gspread.authorize(creds)
 
 
 # Open the Google Sheet
-spreadsheet = client.open("Car Rental Records")
-sheet = spreadsheet.sheet1
+#spreadsheet = client.open("car_2024")
+#sheet = spreadsheet.sheet1
 
 
 
