@@ -23,12 +23,12 @@ with tempfile.NamedTemporaryFile(delete=False, suffix='.json') as temp_file:
 
 # Google Sheets credentials
 scope = ["https://spreadsheets.google.com/feeds"]  #, "https://www.googleapis.com/auth/drive"]
-creds = ServiceAccountCredentials.from_json_keyfile_name(temp_file_path, scope)
-#creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret_373873467094-09gahap4i6mcjuhapoeam50ikqts6tj9.apps.googleusercontent.com.json', scope)
+#creds = ServiceAccountCredentials.from_json_keyfile_name(temp_file_path, scope)
+creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret_373873467094-09gahap4i6mcjuhapoeam50ikqts6tj9.apps.googleusercontent.com.json', scope)
 client = gspread.authorize(creds)
 
 # Open the Google Sheet
-spreadsheet = client.open("car_2024")
+'''spreadsheet = client.open("car_2024")
 sheet = spreadsheet.sheet1
 
 @app.route("/callback", methods=['POST'])
@@ -44,8 +44,9 @@ def callback():
         abort(400)
 
     return 'OK'
+    '''
 
-@handler.add(MessageEvent, message=TextMessage)
+'''@handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     text = event.message.text
 
@@ -66,7 +67,7 @@ def handle_message(event):
     else:
         line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(text="請輸入 '借車 YYYY/MM/DD' 或 '查詢借車記錄'")
+            TextSendMessage(text="請輸入 '借車 YYYY/MM/DD' 或 '查詢借車記錄'")'''
         )
 
 if __name__ == "__main__":
