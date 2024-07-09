@@ -2,7 +2,7 @@ from flask import Flask, request, abort
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage
-import pygsheets #gspread
+import gspread
 import tempfile
 from oauth2client.service_account import ServiceAccountCredentials
 import os
