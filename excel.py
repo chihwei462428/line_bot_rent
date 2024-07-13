@@ -8,7 +8,7 @@ import tempfile
 from oauth2client.service_account import ServiceAccountCredentials
 import os
 
-'''app = Flask(__name__)
+app = Flask(__name__)
 
 line_bot_api = LineBotApi(os.environ['CHANNEL_ACCESS_TOKEN'])
 handler = WebhookHandler(os.environ['CHANNEL_SECRET'])
@@ -59,4 +59,4 @@ def handle_message(event):
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)'''
+    app.run(host='0.0.0.0', port=port)
